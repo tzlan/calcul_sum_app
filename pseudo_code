@@ -1,0 +1,54 @@
+FONCTION resoudre_sumnumber(matrice, sommes_lignes, sommes_col):
+
+    choix = creer_matrice_vide(taille_matrice)
+
+    FOR i DE 0 A nb_lignes:
+        for j DE 0 A nb_colonnes:
+            # Test si ce nombre aide pour les sommes
+            sI supérieur ne pas prendre OK
+            SI (somme_ligne_actuelle + matrice[i][j] <= somme_voulue_ligne) et
+               (somme_colonne_actuelle + matrice[i][j] <= somme_voulue_colonne):
+                choix[i][j] = 1 # Je prends ce nombre
+            SINON:
+                choix[i][j] = 0 # Je ne le prends pas
+
+    SI toutes_sommes_correctes(choix):
+        RETOURNER choix
+    SINON:
+        RETOURNER "Pas de solution"
+
+
+# Test
+matrice = [[...]] # Matrice donnée
+sommes_lignes = [...]
+sommes_colonnes = [...]
+solution = resoudre_sumnumber(matrice, sommes_lignes, sommes_colonnes)
+
+
+    1 . Je te donne la matrice en dur avec 2 listes supplémentaires qui correspondent aux sommes d'une cominaison
+    potentielle précise
+
+    2. Je veux une fonction qui boucle sur tous les indices de ma matrice pour trouver les combinaisons possibles chaque
+    indices avec chaques indice (bon a savoir il faut vraiment tester tous les indices entre eux et tous les
+    combinaisons meme des combinaisons multiples)
+
+    3. Il me faut une fonction qui check les combinaisons et qui prends la liste des combinaisons et qui check si elles
+    sont egales a la ligne.
+
+    4. J'enregistre dans une nouvelle matrice vide dans l'emplacement des valeurs que je recupere, soit que je supprime
+    avec -1 soit que je garde à 100% donc 1 soit que je dois encore traiter apres 0.
+    L'idée est de récupérer des valeurs que je souhaite récuperer avec cette fonction et la logique veut qu'elle utilise
+    la fonction qui fait le calcul des combinaisons (ici la 2)
+
+    5. Je reitere le meme processus dans la matrice mais cette fois ci avec les colonnes, car dans les premieres etapes
+    je ne fais le traitement que sur les lignes.
+
+    6. La fonction principale prends en parametre une matrice avec 2 listes (tu sais de quoi je parle les sommes des
+    lignes et des colonnes) et renvoie une nouvelle matrice de la meme dimension avec les resultats sous forme de
+    0 je prends pas 1 je prends
+
+
+
+
+
+
