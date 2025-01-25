@@ -35,6 +35,7 @@ solution = resoudre_sumnumber(matrice, sommes_lignes, sommes_colonnes)
     3. Il me faut une fonction qui check les combinaisons et qui prends la liste des combinaisons et qui check si elles
     sont egales a la ligne.
 
+
     4. J'enregistre dans une nouvelle matrice vide dans l'emplacement des valeurs que je recupere, soit que je supprime
     avec -1 soit que je garde à 100% donc 1 soit que je dois encore traiter apres 0.
     L'idée est de récupérer des valeurs que je souhaite récuperer avec cette fonction et la logique veut qu'elle utilise
