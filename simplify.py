@@ -12,7 +12,7 @@ def trouver_combinaisons_possibles(ligne, somme_voulue):
     Returns:
         Liste des combinaisons possibles (1 = nombre sélectionné, 0 = non sélectionné)
     """
-    longueur = len(ligne)
+    longueur = len(ligne) #Lengh tha have receive in params
     combinaisons_valides = []
 
     # On teste toutes les possibilités de 0 à 2^longueur-1
@@ -28,24 +28,44 @@ def trouver_combinaisons_possibles(ligne, somme_voulue):
         if somme == somme_voulue:
             combinaisons_valides.append(selection)
 
+
+
     return combinaisons_valides
+#Elle regarde chaque ligne de la solution
+#Multiplie chaque nombre par sa sélection (0 ou 1)
+#Calcule la somme totale
+#Vérifie si cette somme correspond exactement à la somme attendue
 
 
 def verifier_solution(matrice, solution, sommes_lignes, sommes_colonnes):
+    # matrice c'est mon tab origianal
+    #solution ici c'est 0 ou 1 d'en haut et
+
     """
     Vérifie si la solution actuelle respecte toutes les contraintes
     """
-    # Vérifier les sommes des lignes
-    for i, ligne in enumerate(solution):
-        somme = sum(nombre * choix for nombre, choix in zip(matrice[i], ligne))
-        if somme != sommes_lignes[i]:
-            return False
+    # vérifier les sommes des lignes  Parcourir chaque ligne de la solution
 
-    # Vérifier les sommes des colonnes
+    for i, ligne in enumerate(solution):
+        # calculer la somme pour cette ligne
+        # (on multiplie les valeurs de la matrice par les choix dans la solution)
+        somme = sum(nombre * choix for nombre, choix in zip(matrice[i], ligne))
+
+        # vérifier si la somme de la ligne correspond à la somme attendue
+        if somme != sommes_lignes[i]:
+            return False  # Si ce n'est pas le cas, la solution est invalide
+
+    # parcourir chaque colonne de la solution
     for j in range(len(solution[0])):
+        # Calculer la somme pour cette colonne
+        # (on fait la somme des produits des valeurs de la matrice et des choix de la solution)
         somme = sum(matrice[i][j] * solution[i][j] for i in range(len(solution)))
+
+        # vérifier si la somme de la colonne correspond à la somme attendue
         if somme != sommes_colonnes[j]:
-            return False
+            return False  # Si ce n'est pas le cas, la solution est invalide
+
+    # si toutes les lignes et colonnes sont valides, la solution est correcte
 
     return True
 
